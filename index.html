@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Gift Card - Buy & Sell Gift Cards</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f6f9; color: #333; }
+    header { background: #ff6b00; color: white; padding: 15px 20px; display: flex; 
+             justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.5em; }
+    nav button { background: white; color: #ff6b00; border: none; padding: 8px 16px; 
+                 border-radius: 5px; font-weight: bold; cursor: pointer; }
+    .hero { text-align: center; padding: 50px 20px; background: white; }
+    .btn { background: #ff6b00; color: white; padding: 12px 24px; border: none; 
+           border-radius: 5px; cursor: pointer; margin: 5px; font-size: 1em; }
+    .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card h3 { margin-bottom: 10px; color: #ff6b00; }
+    .card input, .card select { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+             background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+    .modal-content { background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; }
+    .close { float: right; font-size: 24px; cursor: pointer; }
+    footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 40px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Top Gift Card</h1>
+  <nav><button onclick="openLogin()">Login</button></nav>
+</header>
+<section class="hero">
+  <h2>Buy & Sell Gift Cards Instantly</h2>
+  <p>Best rates for Amazon, iTunes, Steam, Google Play & more</p>
+  <button class="btn" onclick="document.getElementById('sell').scrollIntoView()">Sell Cards</button>
+  <button class="btn" onclick="document.getElementById('buy').scrollIntoView()">Buy Cards</button>
+</section>
+<div class="container">
+  <div class="card-grid">
+    <div class="card" id="buy">
+      <h3>Buy Gift Cards</h3>
+      <select><option>Select Card Type</option><option>Amazon</option><option>iTunes</option><option>Steam</option></select>
+      <select><option>Amount</option><option>$25</option><option>$50</option><option>$100</option></select>
+      <button class="btn">Buy Now</button>
+    </div>
+    <div class="card" id="sell">
+      <h3>Sell Gift Cards</h3>
+      <select><option>Select Card Type</option><option>Amazon</option><option>iTunes</option><option>Steam</option></select>
+      <input type="text" placeholder="Enter Card Code">
+      <input type="number" placeholder="Card Amount ($)">
+      <button class="btn">Get Quote</button>
+    </div>
+  </div>
+</div>
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLogin()">&times;</span>
+    <h2>Login to Top Gift Card</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button class="btn" onclick="alert('Demo only. Connect backend to make login real.'); closeLogin();">Login</button>
+  </div>
+</div>
+<footer><p>&copy; 2026 Top Gift Card. All rights reserved.</p></footer>
+<script>
+  function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
+  function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
+  window.onclick = function(e) { if (e.target == document.getElementById('loginModal')) closeLogin(); }
+</script>
+</body>
+</html>
